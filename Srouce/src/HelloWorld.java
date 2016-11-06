@@ -3,32 +3,22 @@
  */
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println(Divide(10,0));
+        try {
+            System.out.println(Divide(10, 0));
+        }
+        catch (IllegalArgumentException ie) {
+            System.out.println("you passed invalid argument");
+        }
+
         System.out.println("This is testing for github");
     }
 
     public static int Divide(int a, int b)
     {
-        try
-        {
+        if (b == 0)
+            throw new IllegalArgumentException("b is invalid, can not accept 0");
+
             return  a/b;
-        }
-        catch (ArithmeticException ae)
-        {
-            System.out.println("Encountered ArithmeticException");
-        }
-        catch (Exception e)
-        {
-            System.out.println("Handled by Exception");
-        }
-        catch (Throwable te)
-        {
-            System.out.println("Throwable");
-        }
-        finally {
-            System.out.println("Divide operation completed");
-        }
-        return -1;
     }
 
     public class Calculator
